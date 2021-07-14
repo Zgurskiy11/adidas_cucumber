@@ -1,8 +1,7 @@
-package com.adidas.utilities;
+package com.demoblaze.utilities;
 
-import com.adidas.pages.AdidasPage;
+import com.demoblaze.pages.AdidasPage;
 import com.github.javafaker.Faker;
-import io.cucumber.java.bs.A;
 import org.openqa.selenium.Alert;
 
 public class AdidasUtils {

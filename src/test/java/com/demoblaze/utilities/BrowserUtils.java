@@ -1,4 +1,4 @@
-package com.adidas.utilities;
+package com.demoblaze.utilities;
 
 public class BrowserUtils {
     //Method that will accept int, Wait for given second duration

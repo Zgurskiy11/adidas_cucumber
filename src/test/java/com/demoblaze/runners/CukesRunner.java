@@ -1,4 +1,4 @@
-package com.adidas.runners;
+package com.demoblaze.runners;
 
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
@@ -8,7 +8,7 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         plugin = "html:target/cucumber-report.html",  // allows us to generate reports
         features = "src/test/resources/features",//not same directory. So we coming from source level
-        glue = "com/adidas/step_definitions", //step definitions path. Runner and StepDef are on the same level
+        glue = "com/demoblaze/step_definitions", //step definitions path. Runner and StepDef are on the same level
         dryRun =false
         //just run to see snippets. dryRun Allows us not to run actual implementation
       //  tags = "@wip"        // uses features path. line 10

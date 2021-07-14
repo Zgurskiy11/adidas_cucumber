@@ -1,4 +1,4 @@
-package com.adidas.utilities;
+package com.demoblaze.utilities;
 
 import java.io.FileInputStream;
 import java.io.IOException;

@@ -1,17 +1,14 @@
-package com.adidas.step_definitions;
+package com.demoblaze.step_definitions;
 
-import com.adidas.pages.AdidasPage;
-import com.adidas.utilities.AdidasUtils;
-import com.adidas.utilities.BrowserUtils;
-import com.adidas.utilities.ConfigurationReader;
-import com.adidas.utilities.Driver;
+import com.demoblaze.pages.AdidasPage;
+import com.demoblaze.utilities.AdidasUtils;
+import com.demoblaze.utilities.BrowserUtils;
+import com.demoblaze.utilities.ConfigurationReader;
+import com.demoblaze.utilities.Driver;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
-import org.openqa.selenium.Alert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 
 public class Adidas_StepDefinitions {
     AdidasPage adidasPage = new AdidasPage();
