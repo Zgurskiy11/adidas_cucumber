@@ -11,6 +11,7 @@ import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 
 public class Adidas_StepDefinitions {
     AdidasPage adidasPage = new AdidasPage();
@@ -58,6 +59,16 @@ public class Adidas_StepDefinitions {
         adidasPage.cartButton.click();
         Assert.assertEquals("Dell i7 8gb", adidasPage.secondItemInTheCart.getText());
     }
+    @Given("Sony Laptop already in the cart")
+    public void sony_laptop_already_in_the_cart() {
+        adidasPage.laptopButton.click();
+        adidasPage.sonyVaioI5.click();
+        adidasPage.addTooCardButton.click();
+        BrowserUtils.sleep(1);
+        AdidasUtils.acceptAlert();
+        adidasPage.homePage.click();
+    }
+
 
     @When("user clicks on Cart button")
     public void userClicksOnCartButton() {
@@ -78,6 +89,7 @@ public class Adidas_StepDefinitions {
 
     @Given("user is on Cart page with items in the cart")
     public void userIsOnCartPageWithItemsInTheCart() {
+        Driver.getDriver();
         Driver.getDriver().get(ConfigurationReader.getProperty("env"));
         BrowserUtils.sleep(1);
         adidasPage.laptopButton.click();
@@ -93,7 +105,62 @@ public class Adidas_StepDefinitions {
         AdidasUtils.acceptAlert();
         adidasPage.cartButton.click();
         BrowserUtils.sleep(2);
+    }
+    @Given("user is on Cart page with Sony laptop in the cart")
+    public void user_is_on_cart_page_with_sony_laptop_in_the_cart() {
+        Driver.getDriver();
+        Driver.getDriver().get(ConfigurationReader.getProperty("env"));
+        BrowserUtils.sleep(1);
+        adidasPage.laptopButton.click();
+        adidasPage.sonyVaioI5.click();
+        adidasPage.addTooCardButton.click();
+        BrowserUtils.sleep(1);
+        AdidasUtils.acceptAlert();
+        adidasPage.cartButton.click();
+    }
+    @When("user clicks on Place Order button")
+    public void user_clicks_on_place_order_button() {
+        adidasPage.placeOrderButton.click();
+    }
+    @When("user fills out all form fields")
+    public void user_fills_out_all_form_fields() {
+        AdidasUtils.infoInput();
+        BrowserUtils.sleep(2);
+    }
+    @When("user clicks on purchase")
+    public void user_clicks_on_purchase() {
+        adidasPage.purchaseButton.click();
+    }
+    @Then("user should be able to see purchase ID and Amount")
+    public void user_should_be_able_to_see_purchase_id_and_amount() {
+      String result =adidasPage.purchasingInfo.getText();
+        result= result.substring(0,23);
+        Assert.assertTrue(result.contains("Id"));
+        Assert.assertTrue(result.contains("Amount"));
+    }
+    @Then("user should verify purchase amount")
+    public void user_should_verify_purchase_amount() {
+        BrowserUtils.sleep(1);
+        String result =adidasPage.purchasingInfo.getText();
+        result=result.substring(20,23);
+        Assert.assertEquals("790", result);
+    }
 
+    @Then("clicks ok")
+    public void clicks_ok() {
+        adidasPage.okButton.click();
+    }
+    @Then("closes browser")
+    public void closes_browser() {
+       Driver.closeDriver();
 
+        BrowserUtils.sleep(2);
+    }
+
+    @Given("user is on the home page")
+    public void userIsOnTheHomePage() {
+        Driver.getDriver();
+        Driver.getDriver().get(ConfigurationReader.getProperty("env"));
+        adidasPage.homePage.click();
     }
 }

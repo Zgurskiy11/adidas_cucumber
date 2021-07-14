@@ -55,7 +55,7 @@ public class AdidasPage {
     @FindBy(css = "input#month")
     public WebElement inputMonth;
 
-    @FindBy(css = "input#tear")
+    @FindBy(css = "input#year")
     public WebElement inputYear;
 
     @FindBy(xpath = "//button[.='Purchase']")
@@ -67,7 +67,7 @@ public class AdidasPage {
     @FindBy(xpath = "(//table/tbody/tr/td)[2]")
     public WebElement firstItemInTheCart;
 
-    @FindBy(xpath = "(//table/tbody/tr[2]/td)[2]")
+    @FindBy(xpath = "(//table/tbody/tr[1]/td)[2]")
     public WebElement secondItemInTheCart;
 
     @FindBy(css = "h3#totalp")
