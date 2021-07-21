@@ -8,6 +8,45 @@ import org.openqa.selenium.support.PageFactory;
 import java.util.List;
 
 public class AdidasPage {
+    //also here can create productAdder() method, which accepts category and product.
+
+    /**
+     *  public int productAdder(String category, String product){
+     *         Driver.getDriver().findElement(By.xpath("//a[.='"+category+"']")).click();
+     *         BrowserUtils.sleep(1);
+     *         Driver.getDriver().findElement(By.xpath("//a[.='"+product+"']")).click();
+     *         BrowserUtils.sleep(1);
+     *
+     *         String amountString = purchasePrice.getText();
+     *         String[] arrayAmount = amountString.split(" ");
+     *         int amount = Integer.parseInt(arrayAmount[0].substring(1));
+     *
+     *         addCart.click();
+     *         BrowserUtils.sleep(1);
+     *         Alert alert = Driver.getDriver().switchTo().alert();
+     *         alert.accept();
+     *
+     *         BrowserUtils.sleep(1);
+     *
+     *         homeLink.click();
+     *
+     *         return amount;
+     *
+     *     }  //will help us to get amount of purchase
+     */
+    //and remover
+
+    /**
+     * public int productRemover(String product){
+     *         cart.click();
+     *         BrowserUtils.sleep(1);
+     *         int amount = Integer.parseInt(Driver.getDriver().findElement(By.xpath("//tbody//tr//td[.='"+product+"']/..//td[3]")).getText());
+     *         Driver.getDriver().findElement(By.xpath("//table//tr//td[.='"+product+"']/..//td[.='Delete']/a")).click();
+     *         BrowserUtils.sleep(3);
+     *         return amount;
+     *     }
+     */
+
 
     public AdidasPage(){
         PageFactory.initElements(Driver.getDriver(),this);
@@ -87,6 +126,9 @@ public class AdidasPage {
 
     @FindBy(xpath = "//tbody//tr")
     public List<WebElement> itemsInCart;
+
+    @FindBy(xpath = "//a[@class='hrefch']")
+    public List<WebElement> products;
 
 
 

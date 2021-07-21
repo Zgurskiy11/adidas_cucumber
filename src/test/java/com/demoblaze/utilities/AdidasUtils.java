@@ -8,6 +8,10 @@ public class AdidasUtils {
     public static void acceptAlert() {
         Alert alert = Driver.getDriver().switchTo().alert();
         BrowserUtils.sleep(1);
+        /**
+         * WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 10);
+         *         wait.until(ExpectedConditions.alertIsPresent());
+         */
         alert.accept();
     }
 
